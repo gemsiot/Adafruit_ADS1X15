@@ -17,13 +17,12 @@
 #ifndef __ADS1015_H__
 #define __ADS1015_H__
 
-#if ARDUINO >= 100
-#include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
+#include <Particle.h>
+// #if defined(ARDUINO) //Only include if using arduino 
+//   #include <Wire.h>
+// #endif
 
-#include <Wire.h>
+// #include "Arduino.h"
 
 /*=========================================================================
     I2C ADDRESS/BITS

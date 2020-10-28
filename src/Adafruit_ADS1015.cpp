@@ -27,15 +27,13 @@
     BSD license, all text here must be included in any redistribution
 */
 /**************************************************************************/
-#if ARDUINO >= 100
-#include "Arduino.h"
-#else
-#include "WProgram.h"
-#endif
-
-#include <Wire.h>
+// #if defined(ARDUINO) //Only include if using arduino 
+//   #include "Arduino.h"
+//   #include <Wire.h>
+// #endif
 
 #include "Adafruit_ADS1015.h"
+
 
 /**************************************************************************/
 /*!
@@ -45,11 +43,7 @@
 */
 /**************************************************************************/
 static uint8_t i2cread(void) {
-#if ARDUINO >= 100
   return Wire.read();
-#else
-  return Wire.receive();
-#endif
 }
 
 /**************************************************************************/
@@ -60,11 +54,7 @@ static uint8_t i2cread(void) {
 */
 /**************************************************************************/
 static void i2cwrite(uint8_t x) {
-#if ARDUINO >= 100
   Wire.write((uint8_t)x);
-#else
-  Wire.send(x);
-#endif
 }
 
 /**************************************************************************/
