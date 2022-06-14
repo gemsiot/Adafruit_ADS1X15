@@ -84,7 +84,7 @@ static void writeRegister(uint8_t i2cAddress, uint8_t reg, uint16_t value) {
     @return 16 bit register value read
 */
 /**************************************************************************/
-static uint16_t readRegister(uint8_t i2cAddress, uint8_t reg) {
+static int16_t readRegister(uint8_t i2cAddress, uint8_t reg) {
   Wire.beginTransmission(i2cAddress);
   i2cwrite(reg);
   Wire.endTransmission();
@@ -154,7 +154,7 @@ adsGain_t Adafruit_ADS1015::getGain() { return m_gain; }
     @return the ADC reading
 */
 /**************************************************************************/
-uint16_t Adafruit_ADS1015::readADC_SingleEnded(uint8_t channel) {
+int16_t Adafruit_ADS1015::readADC_SingleEnded(uint8_t channel) {
   if (channel > 3) {
     return 0;
   }
